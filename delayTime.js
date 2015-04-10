@@ -6,8 +6,7 @@ function heavyCompute(n) {
         for (j = n; j > 0; --j) {
             count += 1;
         }
-
-}
+	}
 }
 
 var t = new Date();
