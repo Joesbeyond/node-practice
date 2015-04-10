@@ -1,4 +1,3 @@
-
 function heavyCompute(n, callback) {
     var count = 0,
         i, j;
@@ -8,7 +7,6 @@ function heavyCompute(n, callback) {
             count += 1;
         }
     }
-
     callback(count);
 }
 
