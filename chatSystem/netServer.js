@@ -15,6 +15,10 @@ var chatServer = net.createServer(),
 	client.on('end', function() {
 		clientList.splice(clientList.indexOf(client) ,1)
 	})
+
+	client.on('error', function(e) {
+		console.log(e);
+	})
 })
 
 function broadcast(message, client) {
