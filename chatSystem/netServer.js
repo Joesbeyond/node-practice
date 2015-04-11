@@ -13,7 +13,7 @@ var chatServer = net.createServer(),
 	})
 
 	client.on('end', function() {
-		clientList.splice(clientList.indexof(client) ,1)
+		clientList.splice(clientList.indexOf(client) ,1)
 	})
 })
 
@@ -22,8 +22,8 @@ function broadcast(message, client) {
 	for (var i = 0; i < clientList.length; i++) {
 		if (client !== clientList[i]) {
 
-			if (clientList[i].writeable) {
-				clientLis[i].write(client.name + " says " + message);
+			if (clientList[i].writable) {
+				clientList[i].write(client.name + " says: " + message);
 			} else {
 				cleanup.push(clientList[i]);
 				clientList[i].destroy();
@@ -32,7 +32,8 @@ function broadcast(message, client) {
 	}
 
 	for (var i = 0; i < cleanup.length; i++) {
-		clientList.splice(clientList.indexof(cleanup[i]), 1)
+		clientList.splice(clientList.indexOf(cleanup[i]), 1)
 	};
 }
+
 chatServer.listen(9000);
