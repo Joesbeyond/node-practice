@@ -18,10 +18,21 @@ var chatServer = net.createServer(),
 })
 
 function broadcast(message, client) {
+	var cleanup = [];
 	for (var i = 0; i < clientList.length; i++) {
 		if (client !== clientList[i]) {
-			clientList[i].write(client.name + ' says ' + message);
-		};
+
+			if (clientList[i].writeable) {
+				clientLis[i].write(client.name + " says " + message);
+			} else {
+				cleanup.push(clientList[i]);
+				clientList[i].destroy();
+			}
+		}
+	}
+
+	for (var i = 0; i < cleanup.length; i++) {
+		clientList.splice(clientList.indexof(cleanup[i]), 1)
 	};
 }
 chatServer.listen(9000);
