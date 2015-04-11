@@ -7,6 +7,7 @@ function heavyCompute(n, callback) {
             count += 1;
         }
     }
+
     callback(count);
 }
 
@@ -15,4 +16,3 @@ heavyCompute(10000, function (count) {
 });
 
 console.log('hello');
-

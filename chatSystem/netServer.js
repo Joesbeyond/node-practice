@@ -11,6 +11,10 @@ var chatServer = net.createServer(),
 	client.on('data', function(data) {
 		broadcast(data, client);
 	})
+
+	client.on('end', function() {
+		clientList.splice(clientList.indexof(client) ,1)
+	})
 })
 
 function broadcast(message, client) {
