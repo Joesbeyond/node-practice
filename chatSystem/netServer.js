@@ -1,7 +1,7 @@
 var net = require('net');
 var chatServer = net.createServer(),
 	clientList = [];
-
+	//client = socket
 	chatServer.on('connection', function(client) {
 	client.name = client.remoteAddress + ':' + client.remotePort;	
 	client.write('Hi\n' + client.name + '!\n');
